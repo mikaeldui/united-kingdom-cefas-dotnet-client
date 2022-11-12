@@ -12,7 +12,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalAutoSuggestClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Field.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FieldType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\File.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FilterType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />

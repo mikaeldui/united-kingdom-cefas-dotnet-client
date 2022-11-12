@@ -147,7 +147,7 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// Files which have already been added to their recordset will have an 'importversion'.
         /// </summary>
         /// <param name="recordsetId">The recordset for which file information should be returned.</param>
-        public async Task<File[]?> GetFilesAsync(int recordsetId) =>
+        public async Task<File[]?> GetRecordsetFilesAsync(int recordsetId) =>
             await _httpClient.GetFromJsonAsync<File[]>($"recordsets/{recordsetId}/files");
 
 
@@ -157,8 +157,8 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// Files which have already been added to their recordset will have an 'importversion'.
         /// </summary>
         /// <param name="recordset">The recordset for which file information should be returned.</param>
-        public async Task<File[]?> GetFilesAsync(Recordset recordset) =>
-            await GetFilesAsync(recordset.Id);
+        public async Task<File[]?> GetRecordsetFilesAsync(Recordset recordset) =>
+            await GetRecordsetFilesAsync(recordset.Id);
 
         #endregion Get Files
 
@@ -181,5 +181,127 @@ namespace UnitedKingdom.Cefas.DataPortal
             await GetExportAsync(recordset.Id, format);
 
         #endregion Export
+
+        #region Get  Fields
+
+        /// <summary>
+        /// Returns the Fields associated with the recordset. Difinition recordset fields.
+        /// </summary>
+        /// <param name="recordsetId">The recordset to return filters for. (Note from library developer: endpoint says fields, comment says filters).</param>
+        public async Task<Field[]?> GetRecordsetFieldsAsync(int recordsetId) =>
+            await _httpClient.GetFromJsonAsync<Field[]>($"recordsets/{recordsetId}/fields");
+
+        /// <summary>
+        /// Returns the Fields associated with the recordset. Difinition recordset fields.
+        /// </summary>
+        /// <param name="recordsetId">The recordset to return filters for. (Note from library developer: endpoint says fields, comment says filters).</param>
+        public async Task<Field[]?> GetRecordsetFieldsAsync(Recordset recordset) =>
+            await GetRecordsetFieldsAsync(recordset.Id);
+
+        #endregion Get Fields
+
+        #region Get Field Types
+
+        /// <summary>
+        /// Returns all of the field types which are recognized by the system. Definition of type of fields that can be included in recordsets.
+        /// </summary>
+        public async Task<FieldType[]?> GetFieldTypesAsync() =>
+            await _httpClient.GetFromJsonAsync<FieldType[]>("fieldtypes");
+
+        /// <summary>
+        /// Returns the details of a single field type. Definition of type of fields that can be included in recordsets.
+        /// </summary>
+        /// <param name="id">The field type to return.</param>
+        public async Task<FieldType?> GetFieldTypeAsync(string id) =>
+            await _httpClient.GetFromJsonAsync<FieldType>("fieldtypes/" + id);
+
+        /// <summary>
+        /// Returns the details of a single field type. Definition of type of fields that can be included in recordsets.
+        /// </summary>
+        /// <param name="fieldType">The field type to return.</param>
+        public async Task<FieldType?> GetFieldTypeAsync(FieldType fieldType) =>
+            await GetFieldTypeAsync(fieldType.Name);
+
+        #endregion Get Field Types
+
+        #region Get Recordset Filters
+
+        /// <summary>
+        /// Returns filters for the specified recordset. Filter for data in recordsets.
+        /// </summary>
+        /// <param name="recordsetId">The recordset to return filters for.</param>
+        public async Task<Filter[]?> GetRecordsetFiltersAsync(int recordsetId) =>
+            await _httpClient.GetFromJsonAsync<Filter[]>($"recordsets/{recordsetId}/filters");
+
+        /// <summary>
+        /// Returns filters for the specified recordset. Filter for data in recordsets.
+        /// </summary>
+        /// <param name="recordset">The recordset to return filters for.</param>
+        public async Task<Filter[]?> GetRecordsetFiltersAsync(Recordset recordset) =>
+            await GetRecordsetFiltersAsync(recordset.Id);
+
+        #endregion Get Recordset Filters
+
+        #region Get Filter Types
+
+        /// <summary>
+        /// Returns filter types which are recognized by the system.
+        /// </summary>
+        /// <param name="fieldType">If specified, only those filter types which apply to the selected field are returned.</param>
+        public async Task<FilterType[]?> GetFilterTypesAsync(string? fieldType = null)
+        {
+            var url = "filtertypes";
+            if (fieldType != null) url += "?fieldType=" + fieldType;
+            return await _httpClient.GetFromJsonAsync<FilterType[]>(url);
+        }
+
+        /// <summary>
+        /// Returns filter types which are recognized by the system.
+        /// </summary>
+        /// <param name="fieldType">If specified, only those filter types which apply to the selected field are returned.</param>
+        public async Task<FilterType[]?> GetFilterTypesAsync(FieldType fieldType) =>
+            await GetFilterTypesAsync(fieldType.Name);
+
+        #endregion Get Filter Types
+
+        #region Get WMS
+
+        /// <summary>
+        /// Return <see cref="Stream"/> because unknown return type. Returns WMS for a given recordset.
+        /// </summary>
+        public async Task<Stream> GetRecordsetWmsAsync(int recordsetId) =>
+            await _httpClient.GetStreamAsync($"recordsets/{recordsetId}/wms");
+
+        /// <summary>
+        /// Return <see cref="Stream"/> because unknown return type. Returns WMS for a given recordset.
+        /// </summary>
+        public async Task<Stream> GetRecordsetWmsAsync(Recordset recordset) =>
+            await GetRecordsetWmsAsync(recordset.Id);
+
+        #endregion Get WMS
+
+        #region Get WFS
+
+        /// <summary>
+        /// Return <see cref="Stream"/> because unknown return type. Returns WFS for a given recordset.
+        /// </summary>
+        public async Task<Stream> GetRecordsetWfsAsync(int recordsetId) =>
+            await _httpClient.GetStreamAsync($"recordsets/{recordsetId}/wfs");
+
+        /// <summary>
+        /// Return <see cref="Stream"/> because unknown return type. Returns WFS for a given recordset.
+        /// </summary>
+        public async Task<Stream> GetRecordsetWfsAsync(Recordset recordset) =>
+            await GetRecordsetWfsAsync(recordset.Id);
+
+        #endregion Get WFS
+
+    }
+
+    /// <summary>
+    /// Haven't found any definition for this yet.
+    /// </summary>
+    public class Filter
+    {
     }
 }

@@ -31,6 +31,26 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// </summary>
         public DataPortalRecordsetClient Recordsets => _recordsetClient ??= new DataPortalRecordsetClient(_httpClient);
 
+        /// <summary>
+        /// Returns the grid squares that a specified area overlaps.
+        /// The parameters should be expressed in degrees between -180 and 180 East/West and -90 and 90 North/South.
+        /// If the outer parameter is outside this range it will be clipped to it.
+        /// Specifying a north coordinate which is less than the south coordinate is an error.
+        /// Specifying an east coordinate which is less than the west coordinate is an error.
+        /// </summary>
+        /// <param name="north">The Northern Bound of the area.</param>
+        /// <param name="south">The Southern Bound of the area.</param>
+        /// <param name="east">The Eastern Bound of the area.</param>
+        /// <param name="west">The Western Bound of the area.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">If north is less than south, or east is less than west.</exception>
+        public async Task<int[]?> GetGridsAsync(double north, double south, double east, double west)
+        {
+            if (north < south) throw new ArgumentException("North can't be less than south.");
+            if (east < west) throw new ArgumentException("East can't be less than west.");
+            return await _httpClient.GetFromJsonAsync<int[]>($"grids?north={north}&south={south}&east={east}&west={west}");
+        }
+
         public void Dispose() => ((IDisposable)_httpClient).Dispose();
     }
 }
