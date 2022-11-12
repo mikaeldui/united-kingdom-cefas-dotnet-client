@@ -34,4 +34,8 @@
     <PackageReference Include="MikaelDui.Extensions" Version="*" />
   </ItemGroup>
 
+  <Import Project="..\UnitedKingdom.Cefas.DataPortal.Client\UnitedKingdom.Cefas.DataPortal.Client.projitems" Label="Shared" />
+
+  <Import Project="..\UnitedKingdom.Cefas.Environment.Client\UnitedKingdom.Cefas.Environment.Client.projitems" Label="Shared" />
+
 </Project>

@@ -3,17 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitedKingdom.Cefas.Client", "UnitedKingdom.Cefas.Client\UnitedKingdom.Cefas.Client.csproj", "{7BC7FB3F-8DC4-43B1-AAE8-6AF93B61AC5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitedKingdom.Cefas.Client", "UnitedKingdom.Cefas.Client\UnitedKingdom.Cefas.Client.csproj", "{7BC7FB3F-8DC4-43B1-AAE8-6AF93B61AC5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitedKingdom.Cefas.Client.Tests", "UnitedKingdom.Cefas.Client.Tests\UnitedKingdom.Cefas.Client.Tests.csproj", "{6AE0B754-19F0-4947-81BD-07711E98B756}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitedKingdom.Cefas.Client.Tests", "UnitedKingdom.Cefas.Client.Tests\UnitedKingdom.Cefas.Client.Tests.csproj", "{6AE0B754-19F0-4947-81BD-07711E98B756}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnitedKingdom.Cefas.DataPortal.Client", "UnitedKingdom.Cefas.DataPortal.Client\UnitedKingdom.Cefas.DataPortal.Client.shproj", "{B82D87AB-70D9-4C1C-9F91-CD98E36BA7E7}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnitedKingdom.Cefas.Environment.Client", "UnitedKingdom.Cefas.Environment.Client\UnitedKingdom.Cefas.Environment.Client.shproj", "{4BB8C72D-DD1F-4282-9927-1F21BAA6D463}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7BC7FB3F-8DC4-43B1-AAE8-6AF93B61AC5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +25,17 @@ Global
 		{6AE0B754-19F0-4947-81BD-07711E98B756}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AE0B754-19F0-4947-81BD-07711E98B756}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AE0B754-19F0-4947-81BD-07711E98B756}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5F76325-127C-47C4-888A-0E11006DF25D}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		UnitedKingdom.Cefas.Environment.Client\UnitedKingdom.Cefas.Environment.Client.projitems*{4bb8c72d-dd1f-4282-9927-1f21baa6d463}*SharedItemsImports = 13
+		UnitedKingdom.Cefas.DataPortal.Client\UnitedKingdom.Cefas.DataPortal.Client.projitems*{7bc7fb3f-8dc4-43b1-aae8-6af93b61ac5a}*SharedItemsImports = 5
+		UnitedKingdom.Cefas.Environment.Client\UnitedKingdom.Cefas.Environment.Client.projitems*{7bc7fb3f-8dc4-43b1-aae8-6af93b61ac5a}*SharedItemsImports = 5
+		UnitedKingdom.Cefas.DataPortal.Client\UnitedKingdom.Cefas.DataPortal.Client.projitems*{b82d87ab-70d9-4c1c-9f91-cd98e36ba7e7}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
