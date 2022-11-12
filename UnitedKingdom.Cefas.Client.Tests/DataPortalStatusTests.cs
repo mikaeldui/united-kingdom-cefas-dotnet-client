@@ -19,5 +19,23 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsNotNull(result.Version);
             Assert.IsTrue(result.Options.Any());
         }
+
+        [TestMethod]
+        public async Task GetServiceStatusAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Status.GetServiceStatusAsync(true);
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().ResponseStatus);
+        }
+
+        [TestMethod]
+        public async Task GetLocationStatusAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Status.GetLocationStatusAsync();
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().Type);
+        }
     }
 }
