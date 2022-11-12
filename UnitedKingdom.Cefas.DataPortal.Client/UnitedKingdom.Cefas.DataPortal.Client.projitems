@@ -9,5 +9,12 @@
     <Import_RootNamespace>UnitedKingdom.Cefas.DataPortal</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataPortalAutoSuggestClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Recordset.cs" />
+    <Compile Include="..\UnitedKingdom.Cefas.DataPortal.Client\DataPortalClient.cs" />
   </ItemGroup>
 </Project>

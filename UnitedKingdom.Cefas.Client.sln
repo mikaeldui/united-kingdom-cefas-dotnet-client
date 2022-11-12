@@ -11,6 +11,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnitedKingdom.Cefas.DataPor
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnitedKingdom.Cefas.Environment.Client", "UnitedKingdom.Cefas.Environment.Client\UnitedKingdom.Cefas.Environment.Client.shproj", "{4BB8C72D-DD1F-4282-9927-1F21BAA6D463}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{3FAE79AF-F726-4241-BF54-B524D3116710}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BC7FB3F-8DC4-43B1-AAE8-6AF93B61AC5A} = {3FAE79AF-F726-4241-BF54-B524D3116710}
+		{B82D87AB-70D9-4C1C-9F91-CD98E36BA7E7} = {3FAE79AF-F726-4241-BF54-B524D3116710}
+		{4BB8C72D-DD1F-4282-9927-1F21BAA6D463} = {3FAE79AF-F726-4241-BF54-B524D3116710}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5F76325-127C-47C4-888A-0E11006DF25D}
