@@ -78,5 +78,14 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsTrue(result.Any());
             Assert.IsNotNull(result.First().Filename);
         }
+
+        [TestMethod]
+        public async Task GetRecordsetExportAsync()
+        {
+            using DataPortalClient client = new();
+            var recordsets = await client.Recordsets.GetRecordsetsAsync();
+            using var result = await client.GetResultsetExportAsync(recordsets.First());
+            Assert.IsTrue(result.CanRead);
+        }
     }
 }
