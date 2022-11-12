@@ -182,7 +182,7 @@ namespace UnitedKingdom.Cefas.DataPortal
 
         #endregion Export
 
-        #region Get  Fields
+        #region Get Fields
 
         /// <summary>
         /// Returns the Fields associated with the recordset. Difinition recordset fields.
@@ -296,6 +296,30 @@ namespace UnitedKingdom.Cefas.DataPortal
 
         #endregion Get WFS
 
+        #region Get Licences
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Licence[]?> GetLicencesAsync() =>
+            await _httpClient.GetFromJsonAsync<Licence[]>("licences");
+
+        #endregion Get Licences
+
+    }
+
+    public class Licence : Link
+    {
+        /// <summary>
+        /// E.g. "1".
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// E.g. "Open Government Licence".
+        /// </summary>
+        public string Name { get; set; }
     }
 
     /// <summary>
