@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalAutoSuggestClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Area.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DatabaseStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DateProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Field.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\FieldType.cs" />
@@ -30,12 +31,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\LicenceUsage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Location.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LocationStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MapOverlay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Property.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PropertyVocabulary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Recordset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Statistics.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Version.cs" />

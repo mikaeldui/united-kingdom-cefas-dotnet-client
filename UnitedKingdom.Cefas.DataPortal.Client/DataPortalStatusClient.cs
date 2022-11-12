@@ -35,34 +35,13 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// </summary>
         public async Task<LocationStatus[]?> GetLocationStatusAsync() =>
             await _httpClient.GetFromJsonAsync<LocationStatus[]>("status/locations");
-    }
 
-    public class LocationStatus
-    {
         /// <summary>
-        /// E.g. "Smartbuoy".
+        /// Information about the service layer database.
+        /// This extends the information in the statistics endpoint.
         /// </summary>
-        public string Name { get; set; }
-        /// <summary>
-        /// E.g. "Microsoft.Data.SqlClient".
-        /// </summary>
-        public string Type { get; set; }
-        public bool AbleToConnect { get; set; }
-        public bool ExternallyAccessible { get; set; }
-        public Dictionary<string, int>? RecordsetNumbers { get; set; }
-        public string[]? BrokenRecordsets { get; set; }
-        public string[]? MissingTables { get; set; }
-        public string[]? OrphanedTables { get; set; }
-    }
+        public async Task<DatabaseStatus?> GetDatabaseStatusAsync() =>
+            await _httpClient.GetFromJsonAsync<DatabaseStatus>("status/database");       
 
-    public class ServiceStatus
-    {
-        public Uri Location { get; set; }
-        public int ResponseCount { get; set; }
-        public TimeSpan ResponseTime { get; set; }
-        public int ResponseSize { get; set; }
-        public int ResponseCode { get; set; }
-        public string ResponseStatus { get; set; }
-        public bool AbleToConnect { get; set; }
     }
 }
