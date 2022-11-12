@@ -13,6 +13,7 @@ namespace UnitedKingdom.Cefas.DataPortal
         private DataPortalAutoSuggestClient? _autoSuggestClient;
         private DataPortalRecordsetClient? _recordsetClient;
         private DataPortalHoldingsClient? _holdingsClient;
+        private DataPortalStatusClient? _statusClient;
 
         public DataPortalClient()
         {
@@ -37,6 +38,12 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// Actions related to holdings.
         /// </summary>
         public DataPortalHoldingsClient Holdings => _holdingsClient ??= new DataPortalHoldingsClient(_httpClient);
+
+        /// <summary>
+        /// System status reports.
+        /// </summary>
+        public DataPortalStatusClient Status => _statusClient ??= new DataPortalStatusClient(_httpClient);
+
 
         #region Get Grids
 
