@@ -79,6 +79,24 @@ namespace UnitedKingdom.Cefas.DataPortal
 
         #region Get Holding ID by Medin ID
 
+        /// <summary>
+        /// Returns the holding ID for the given Medin ID.
+        /// </summary>
+        /// <param name="medinId">E.g. "78edae85-c899-409b-ac05-1b5f6c1f68ae".</param>
+        public async Task<int> GetHoldingIdByMedinIdAsync(string medinId)
+        {
+            var result = int.Parse(await _httpClient.GetStringAsync("holdings/medin/" + medinId));
+            if (result == -1) throw new HttpRequestException("The user doesn't have access to the holding or the holding doesn't exist");
+            return result;
+        }
+
+        /// <summary>
+        /// Returns the holding ID for the given Medin ID.
+        /// </summary>
+        /// <param name="medinId">E.g. "78edae85-c899-409b-ac05-1b5f6c1f68ae".</param>
+        public async Task<int> GetHoldingIdByMedinIdAsync(Guid medinId) =>
+            await GetHoldingIdByMedinIdAsync(medinId.ToString());
+
         #endregion Get Holding ID by Medin ID
     }
 }

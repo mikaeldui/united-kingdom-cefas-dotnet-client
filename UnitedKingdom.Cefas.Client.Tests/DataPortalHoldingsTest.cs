@@ -37,5 +37,15 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.Inconclusive("Haven't found any holding with siblings, so can't test this.");
             Assert.IsTrue(result.Any());
         }
+
+        //78edae85-c899-409b-ac05-1b5f6c1f68ae
+
+        [TestMethod]
+        public async Task GetHoldingIdByMedinIdAsync()
+        {
+            using DataPortalClient client = new();
+            await client.Holdings.GetHoldingIdByMedinIdAsync("78edae85-c899-409b-ac05-1b5f6c1f68ae");
+            await client.Holdings.GetHoldingIdByMedinIdAsync(Guid.Parse("78edae85-c899-409b-ac05-1b5f6c1f68ae"));
+        }
     }
 }
