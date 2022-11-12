@@ -20,16 +20,19 @@ namespace UnitedKingdom.Cefas.DataPortal
         public bool Draft { get; set; }
         public bool Hidden { get; set; }
         public bool PublishtoOgcEdx { get; set; }
-        public object[] Versions { get; set; }
-        public object[] Fields { get; set; }
+        public Version[] Versions { get; set; }
+        public Field[] Fields { get; set; }
         public object[] Filters { get; set; }
+        /// <summary>
+        /// E.g. Self, Holding and Data.
+        /// </summary>
         public Dictionary<string, Link> Links { get; set; }
         public string QouteCharacter { get; set; }
         public string NullString { get; set; }
         public int Srid { get; set; }
         public string KeyFields { get; set; }
         public string TableName { get; set; }
-        public int? DeleteddVersion { get; set; }
+        public int? DeletedVersion { get; set; }
         public string DeletedBy { get; set; }
     }
 }
