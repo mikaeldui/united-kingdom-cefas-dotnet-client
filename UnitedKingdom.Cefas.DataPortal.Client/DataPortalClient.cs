@@ -10,7 +10,7 @@ namespace UnitedKingdom.Cefas.DataPortal
     public class DataPortalClient : IDisposable
     {
         private HttpClient _httpClient;
-        private DataPortalAutoSuggestClient? _autoSuggestClient;
+        private DataPortalVocabularyClient? _vocabularyClient;
         private DataPortalRecordsetClient? _recordsetClient;
         private DataPortalHoldingsClient? _holdingsClient;
         private DataPortalStatusClient? _statusClient;
@@ -25,9 +25,9 @@ namespace UnitedKingdom.Cefas.DataPortal
         }
 
         /// <summary>
-        /// Data for populating auto suggest fields.
+        /// Defines vocabularies that are used for predefinined holding property types.
         /// </summary>
-        public DataPortalAutoSuggestClient AutoSuggest => _autoSuggestClient ??= new DataPortalAutoSuggestClient(_httpClient);
+        public DataPortalVocabularyClient Vocabularies => _vocabularyClient ??= new DataPortalVocabularyClient(_httpClient);
         
         /// <summary>
         /// Actions related to recordsets and data.
@@ -43,7 +43,6 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// System status reports.
         /// </summary>
         public DataPortalStatusClient Status => _statusClient ??= new DataPortalStatusClient(_httpClient);
-
 
         #region Get Grids
 

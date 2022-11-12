@@ -47,5 +47,14 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsNotNull(result.Counts.First().Type);
             Assert.IsNotNull(result.Counts.First().Count > 0);
         }
+
+        [TestMethod]
+        public async Task GetCollectionStatusAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Status.GetcollectionStatusAsync();
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().Name);
+        }
     }
 }

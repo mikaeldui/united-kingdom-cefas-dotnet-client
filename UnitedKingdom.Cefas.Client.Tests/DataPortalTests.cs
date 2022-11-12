@@ -12,15 +12,6 @@ namespace UnitedKingdom.Cefas.Tests
     public class DataPortalTests
     {
         [TestMethod]
-        public async Task GetAutoSuggestVocabulariesAsync()
-        {
-            using DataPortalClient client = new();
-            var result = await client.AutoSuggest.GetVocabulariesAsync("a");
-            Assert.IsTrue(result.Any());
-            Assert.IsNotNull(result.First());
-        }
-
-        [TestMethod]
         public async Task GetGridsAsync()
         {
             using DataPortalClient client = new();

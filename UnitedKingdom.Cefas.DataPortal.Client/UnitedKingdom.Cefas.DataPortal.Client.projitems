@@ -12,8 +12,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalStatusClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalHoldingsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataPortalAutoSuggestClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Vocabulary.cs" />
+    <Compile Include="..\UnitedKingdom.Cefas.DataPortal.Client\DataPortalVocabularyClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Area.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CollectionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DatabaseStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DateProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Field.cs" />

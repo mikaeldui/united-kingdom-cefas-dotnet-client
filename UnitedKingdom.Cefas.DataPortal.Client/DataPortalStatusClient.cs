@@ -41,7 +41,18 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// This extends the information in the statistics endpoint.
         /// </summary>
         public async Task<DatabaseStatus?> GetDatabaseStatusAsync() =>
-            await _httpClient.GetFromJsonAsync<DatabaseStatus>("status/database");       
+            await _httpClient.GetFromJsonAsync<DatabaseStatus>("status/database");
 
+        /// <summary>
+        /// The current version of the service layer. E.g. "Build_20220804.4".
+        /// </summary>
+        public async Task<string?> GetVersionStatusAsync() =>
+            await _httpClient.GetFromJsonAsync<string>("status/version");
+
+        /// <summary>
+        /// Lists all collections available in the OGC Environmental Data Retrieval API including location cache data.
+        /// </summary>
+        public async Task<CollectionStatus[]?> GetcollectionStatusAsync() =>
+            await _httpClient.GetFromJsonAsync<CollectionStatus[]>("status/collections");
     }
 }

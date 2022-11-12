@@ -2,13 +2,14 @@
 {
     public class Keyword
     {
+        public int? Id { get; set; }
         public int? HoldingCount { get; set; }
         /// <summary>
-        /// Same as Name.
+        /// Same as <see cref="Name"/>.
         /// </summary>
-        public string Value { get; set; }
+        public string Value { get => Name; set => Name = value; }
         /// <summary>
-        /// Same as Value.
+        /// Same as <see cref="Value"/>.
         /// </summary>
         public string Name { get; set; }
         public string DisplayName { get; set; }
@@ -18,5 +19,7 @@
         public DateTime? StartDate { get; set; }
         public int? Order { get; set; }
         public Uri? DefinitionLink { get; set; }
+        public string? ExportName { get; set; }
+        public string? ExportCode { get; set; }
     }
 }
