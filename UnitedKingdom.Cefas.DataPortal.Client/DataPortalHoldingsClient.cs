@@ -143,5 +143,30 @@ namespace UnitedKingdom.Cefas.DataPortal
             await GetHoldingTypeAsync(holdingtype.Id, editmode);
 
         #endregion Get Holding Types
+
+        #region Get Keywords
+
+        /// <summary>
+        /// Returns number of holdings which use each keyword.
+        /// The results are sorted in descending order of the number of holdings using each keyword.
+        /// </summary>
+        public async Task<Keyword[]?> GetKeywordsAsync(bool includeAll = false) =>
+            await _httpClient.GetFromJsonAsync<Keyword[]>("keywords?includeall=" + includeAll);
+
+        /// <summary>
+        /// Returns the details of an individual keyword. 
+        /// This call may be used to acquire a more friendly display name for a keyword.
+        /// </summary>
+        public async Task<Keyword?> GetKeywordAsync(string id) =>
+            await _httpClient.GetFromJsonAsync<Keyword>("keywords/" + id);
+
+        /// <summary>
+        /// Returns the details of an individual keyword. 
+        /// This call may be used to acquire a more friendly display name for a keyword.
+        /// </summary>
+        public async Task<Keyword?> GetKeywordAsync(Keyword keyword) =>
+            await GetKeywordAsync(keyword.Value ?? keyword.Name);
+
+        #endregion Get Keywords
     }
 }
