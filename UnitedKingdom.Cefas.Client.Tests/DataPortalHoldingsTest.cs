@@ -38,14 +38,42 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsTrue(result.Any());
         }
 
-        //78edae85-c899-409b-ac05-1b5f6c1f68ae
-
         [TestMethod]
         public async Task GetHoldingIdByMedinIdAsync()
         {
             using DataPortalClient client = new();
             await client.Holdings.GetHoldingIdByMedinIdAsync("78edae85-c899-409b-ac05-1b5f6c1f68ae");
             await client.Holdings.GetHoldingIdByMedinIdAsync(Guid.Parse("78edae85-c899-409b-ac05-1b5f6c1f68ae"));
+        }
+
+        [TestMethod]
+        public async Task GetHoldingRecordsetsAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetHoldingRecordsetsAsync(149);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().Name);
+        }
+
+        [TestMethod]
+        public async Task GetHoldingTypesAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetHoldingTypesAsync();
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().Name);
+        }
+
+        [TestMethod]
+        public async Task GetHoldingTypeAsync()
+        {
+            using DataPortalClient client = new();
+            var holdingTypes = await client.Holdings.GetHoldingTypesAsync();
+            var result = await client.Holdings.GetHoldingTypeAsync(holdingTypes.First());
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(result.Name);
         }
     }
 }

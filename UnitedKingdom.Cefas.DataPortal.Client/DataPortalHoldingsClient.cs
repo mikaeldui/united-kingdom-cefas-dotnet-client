@@ -98,5 +98,50 @@ namespace UnitedKingdom.Cefas.DataPortal
             await GetHoldingIdByMedinIdAsync(medinId.ToString());
 
         #endregion Get Holding ID by Medin ID
+
+        #region Get Holding Recordsets
+
+        /// <summary>
+        /// Returns a list of the recordsets attached to the specified holding.
+        /// </summary>
+        /// <param name="holdingID">The holding to list recordsets for.</param>
+        public async Task<Recordset[]?> GetHoldingRecordsetsAsync(int holdingID) =>
+            await _httpClient.GetFromJsonAsync<Recordset[]>($"holdings/{holdingID}/recordsets");
+
+        /// <summary>
+        /// Returns a list of the recordsets attached to the specified holding.
+        /// </summary>
+        /// <param name="holding">The holding to list recordsets for.</param>
+        public async Task<Recordset[]?> GetHoldingRecordsetsAsync(Holding holding) =>
+            await GetHoldingRecordsetsAsync(holding.Id);
+
+        #endregion Get Holding Recordsets
+
+        #region Get Holding Types
+
+        /// <summary>
+        /// Returns all of the holding types in the system.
+        /// The information returned for each holding type is the same as when that holding type is selected individually with editmode=true.
+        /// </summary>
+        public async Task<HoldingType[]?> GetHoldingTypesAsync() =>
+            await _httpClient.GetFromJsonAsync<HoldingType[]>("holdingtypes");
+
+        /// <summary>
+        /// Returns a single holding type.
+        /// The amount of detail returned for the holding type varies depending on the value of editmode.
+        /// </summary>
+        /// <param name="id">The holding type to retrieve</param>
+        public async Task<HoldingType?> GetHoldingTypeAsync(int id, bool editmode = false) =>
+            await _httpClient.GetFromJsonAsync<HoldingType>($"holdingtypes/{id}?editmode=" + editmode);
+
+        /// <summary>
+        /// Returns a single holding type.
+        /// The amount of detail returned for the holding type varies depending on the value of editmode.
+        /// </summary>
+        /// <param name="id">The holding type to retrieve</param>
+        public async Task<HoldingType?> GetHoldingTypeAsync(HoldingType holdingtype, bool editmode = false) =>
+            await GetHoldingTypeAsync(holdingtype.Id, editmode);
+
+        #endregion Get Holding Types
     }
 }

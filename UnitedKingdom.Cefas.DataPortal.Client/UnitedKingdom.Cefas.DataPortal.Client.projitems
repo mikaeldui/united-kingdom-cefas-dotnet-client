@@ -20,6 +20,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Holding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingPropertyValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingTypeSection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingTypeSectionProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />
