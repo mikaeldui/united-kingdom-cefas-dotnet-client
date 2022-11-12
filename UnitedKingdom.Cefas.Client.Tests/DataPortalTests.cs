@@ -80,11 +80,11 @@ namespace UnitedKingdom.Cefas.Tests
         }
 
         [TestMethod]
-        public async Task GetRecordsetExportAsync()
+        public async Task GetExportAsync()
         {
             using DataPortalClient client = new();
             var recordsets = await client.Recordsets.GetRecordsetsAsync();
-            using var result = await client.GetResultsetExportAsync(recordsets.First());
+            using var result = await client.Recordsets.GetExportAsync(recordsets.First());
             Assert.IsTrue(result.CanRead);
         }
     }

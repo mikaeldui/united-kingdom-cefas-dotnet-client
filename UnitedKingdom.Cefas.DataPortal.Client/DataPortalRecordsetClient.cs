@@ -161,5 +161,25 @@ namespace UnitedKingdom.Cefas.DataPortal
             await GetFilesAsync(recordset.Id);
 
         #endregion Get Files
+
+        #region Get Export
+
+        /// <summary>
+        /// Performs a download of a recordset.
+        /// </summary>
+        /// <param name="recordsetId">The Recordset to Download.</param>
+        /// <param name="format">The format in which the download should be provided, only CSV is supported at this time. If this parameter is omitted, CSV is assumed.</param>
+        public async Task<Stream> GetExportAsync(int recordsetId, string format = "csv") =>
+            await _httpClient.GetStreamAsync($"export/{recordsetId}?format={format}");
+
+        /// <summary>
+        /// Performs a download of a recordset.
+        /// </summary>
+        /// <param name="recordset">The Recordset to Download.</param>
+        /// <param name="format">The format in which the download should be provided, only CSV is supported at this time. If this parameter is omitted, CSV is assumed.</param>
+        public async Task<Stream> GetExportAsync(Recordset recordset, string format = "csv") =>
+            await GetExportAsync(recordset.Id, format);
+
+        #endregion Export
     }
 }
