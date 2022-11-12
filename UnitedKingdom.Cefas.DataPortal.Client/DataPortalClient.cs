@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace UnitedKingdom.Cefas.DataPortal
@@ -115,6 +116,17 @@ namespace UnitedKingdom.Cefas.DataPortal
             await _httpClient.GetFromJsonAsync<MapOverlay[]>("mapoverlays");
 
         #endregion Get Map Overlays
+
+        #region Get Statistics
+
+        /// <summary>
+        /// Returns the number of holdings and recordsets in the system. 
+        /// Statistics on the number of holdings and recordsets.
+        /// </summary>
+        public async Task<Statistics[]?> GetStatisticsAsync() =>
+            await _httpClient.GetFromJsonAsync<Statistics[]>("statistics");
+
+        #endregion Get Statistics
 
         public void Dispose() => ((IDisposable)_httpClient).Dispose();
     }
