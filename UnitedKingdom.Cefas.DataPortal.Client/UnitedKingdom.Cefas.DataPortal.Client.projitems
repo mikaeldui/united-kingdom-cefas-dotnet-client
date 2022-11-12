@@ -27,6 +27,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Licence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\LicenceUsage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Location.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\MapOverlay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Recordset.cs" />

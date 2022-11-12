@@ -73,6 +73,49 @@ namespace UnitedKingdom.Cefas.DataPortal
 
         #endregion
 
+        #region Get Locations
+
+        /// <summary>
+        /// Returns the list of locations recognised by the system. 
+        /// The connection details are deliberately set to null in the response.
+        /// Functions related to storage database locations.
+        /// </summary>
+        public async Task<Location[]?> GetLocationsAsync() =>
+            await _httpClient.GetFromJsonAsync<Location[]>("locations");
+
+        #endregion Get Locations
+
+        #region Get Location
+
+        /// <summary>
+        /// Determines whether a given location exists.
+        /// Functions related to storage database locations.
+        /// Exception (404) if it doesn't exist.
+        /// </summary>
+        public async Task GetLocationAsync(int id) =>
+            await _httpClient.GetAsync("locations/" + id);
+
+        /// <summary>
+        /// Determines whether a given location exists.
+        /// Functions related to storage database locations.
+        /// Exception (404) if it doesn't exist.
+        /// </summary>
+        public async Task GetLocationAsync(Location location) =>
+            await GetLocationAsync(location.Id);
+
+        #endregion Get Location
+
+        #region Get Map Overlays
+
+        /// <summary>
+        /// Gets a list of map overlays to use in the viewer.
+        /// Define overlays that can be displayed on the map.
+        /// </summary>
+        public async Task<MapOverlay[]?> GetMapOverlaysAsync() =>
+            await _httpClient.GetFromJsonAsync<MapOverlay[]>("mapoverlays");
+
+        #endregion Get Map Overlays
+
         public void Dispose() => ((IDisposable)_httpClient).Dispose();
     }
 }
