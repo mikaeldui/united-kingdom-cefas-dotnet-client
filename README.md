@@ -2,7 +2,7 @@
 [![.NET](https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client/actions/workflows/dotnet.yml)
 [![CodeQL Analysis](https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client/actions/workflows/codeql-analysis.yml)
 
-The Centre for Environment, Fisheries and Aquaculture Science is an executive agency of the United Kingdom government Department for Environment, Food and Rural Affairs. 
+The [Centre for Environment, Fisheries and Aquaculture Science](https://github.com/CefasRepRes) is an executive agency of the United Kingdom government Department for Environment, Food and Rural Affairs. 
 It carries out a wide range of research, advisory, consultancy, monitoring and training activities for a large number of customers around the world.
 
 You can install it using the following **.NET CLI** command:
