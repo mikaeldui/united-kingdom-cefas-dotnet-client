@@ -14,13 +14,13 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>UnitedKingdom.Cefas.Client.png</PackageIcon>
     <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</RepositoryUrl>
-    <PackageTags></PackageTags>
+    <PackageTags>cefas; united kingdom; environment; fisheries; aquaculture;</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
     <AssemblyName>MikaelDui.UnitedKingdom.Cefas.Client</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\UnitedKingdom.Cefas.Client.png">
+    <None Include="..\UnitedKingdom.Cefas.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
