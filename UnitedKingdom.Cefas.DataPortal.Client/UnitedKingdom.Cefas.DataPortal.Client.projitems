@@ -24,6 +24,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingTypeSection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingTypeSectionProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Keyword.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Licence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LicenceUsage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />

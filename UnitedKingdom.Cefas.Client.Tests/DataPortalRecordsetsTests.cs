@@ -132,5 +132,23 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsNotNull(result.First().LongName);
         }
 
+        [TestMethod]
+        public async Task GetLicencesAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Recordsets.GetLicencesAsync();
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().Name);
+        }
+
+        [TestMethod]
+        public async Task GetLicenceUsageAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Recordsets.GetLicenceUsageAsync();
+            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result.First().Name);
+            Assert.IsNotNull(result.First().Count > 0);
+        }
     }
 }

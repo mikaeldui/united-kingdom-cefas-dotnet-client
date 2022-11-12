@@ -299,27 +299,18 @@ namespace UnitedKingdom.Cefas.DataPortal
         #region Get Licences
 
         /// <summary>
-        /// 
+        /// Gets the list of licences for recordset data.
         /// </summary>
-        /// <returns></returns>
         public async Task<Licence[]?> GetLicencesAsync() =>
             await _httpClient.GetFromJsonAsync<Licence[]>("licences");
 
+        /// <summary>
+        /// Gets the list of licences and how many recordsets use the license.
+        /// </summary>
+        public async Task<LicenceUsage[]?> GetLicenceUsageAsync() =>
+            await _httpClient.GetFromJsonAsync<LicenceUsage[]>("licences/usage");
+
         #endregion Get Licences
-
-    }
-
-    public class Licence : Link
-    {
-        /// <summary>
-        /// E.g. "1".
-        /// </summary>
-        public int Id { get; set; }
-
-        /// <summary>
-        /// E.g. "Open Government Licence".
-        /// </summary>
-        public string Name { get; set; }
     }
 
     /// <summary>
