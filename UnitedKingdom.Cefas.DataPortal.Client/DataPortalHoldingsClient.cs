@@ -168,5 +168,37 @@ namespace UnitedKingdom.Cefas.DataPortal
             await GetKeywordAsync(keyword.Value ?? keyword.Name);
 
         #endregion Get Keywords
+
+        #region Get Date Properties
+
+        /// <summary>
+        /// Gets a list of all date properties.
+        /// Definition of properties that can be included in holding types.
+        /// </summary>
+        public async Task<DateProperty[]?> GetDatePropertiesAsync() =>
+            await _httpClient.GetFromJsonAsync<DateProperty[]>("dateproperties");
+
+        #endregion
+
+        #region Get Properties
+
+        /// <summary>
+        /// Gets a list of all properties.
+        /// </summary>
+        public async Task<Property[]?> GetPropertiesAsync() =>
+            await _httpClient.GetFromJsonAsync<Property[]>("properties");
+
+        #endregion Get Properties
+
+        #region Get Property
+
+        /// <summary>
+        /// Get property by short name.
+        /// </summary>
+        /// <param name="shortName">The short name of the property to find.</param>
+        public async Task<Property?> GetPropertyAsync(string shortName) =>
+            await _httpClient.GetFromJsonAsync<Property>("properties/" + shortName);
+
+        #endregion Get Property
     }
 }

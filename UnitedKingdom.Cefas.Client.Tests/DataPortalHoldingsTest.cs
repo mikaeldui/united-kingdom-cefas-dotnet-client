@@ -95,5 +95,32 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.DisplayName);
         }
+
+        [TestMethod]
+        public async Task GetDatePropertiesAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetDatePropertiesAsync();
+            Assert.IsNotNull(result.Any());
+            Assert.IsNotNull(result.First().LongName);
+        }
+
+        [TestMethod]
+        public async Task GetPropertiesAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetPropertiesAsync();
+            Assert.IsNotNull(result.Any());
+            Assert.IsNotNull(result.First().LongName);
+        }
+
+        [TestMethod]
+        public async Task GetPropertyAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetPropertyAsync("AddInfoSource");
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(result.LongName);
+        }
     }
 }

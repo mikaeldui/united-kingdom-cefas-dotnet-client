@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalAutoSuggestClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Area.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DateProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Field.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\FieldType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\File.cs" />
@@ -30,6 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Location.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MapOverlay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Property.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PropertyVocabulary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Recordset.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Version.cs" />
