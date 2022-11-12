@@ -9,12 +9,17 @@
     <Import_RootNamespace>UnitedKingdom.Cefas.DataPortal</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataPortalHoldingsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalAutoSuggestClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Area.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Field.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\FieldType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\File.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\FilterType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Holding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HoldingPropertyValue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Page.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Record.cs" />

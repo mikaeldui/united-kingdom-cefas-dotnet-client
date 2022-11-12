@@ -11,7 +11,7 @@ namespace UnitedKingdom.Cefas.DataPortal
     /// </summary>
     public class DataPortalRecordsetClient
     {
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         internal DataPortalRecordsetClient(HttpClient httpClient) => _httpClient = httpClient;
 
         /// <summary>

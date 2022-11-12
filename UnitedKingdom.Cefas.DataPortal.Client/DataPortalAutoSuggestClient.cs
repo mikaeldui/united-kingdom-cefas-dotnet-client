@@ -10,7 +10,7 @@ namespace UnitedKingdom.Cefas.DataPortal
     /// </summary>
     public class DataPortalAutoSuggestClient
     {
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         internal DataPortalAutoSuggestClient(HttpClient httpClient) => _httpClient = httpClient;
 
         /// <summary>

@@ -6,8 +6,9 @@ namespace UnitedKingdom.Cefas.DataPortal
 {
     public class Page<TItem>
     {
+        public string? Feedback { get; set; }
         /// <summary>
-        /// E.g. "Self" or "Recordsset".
+        /// E.g. "Next", "Self" or "Recordsset".
         /// </summary>
         public Dictionary<string, Link> Links { get; set; }
         public int CurrentPage { get; set; }
