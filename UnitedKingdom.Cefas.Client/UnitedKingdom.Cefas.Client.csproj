@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>UnitedKingdom.Cefas</RootNamespace>
+    <PackageId>MikaelDui.UnitedKingdom.Cefas.Client</PackageId>
+    <Authors>Mikael Dúi Bolinder</Authors>
+    <Product>MikaelDui.UnitedKingdom.Cefas.Client</Product>
+    <Description>This project is really awesome!</Description>
+    <PackageProjectUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>UnitedKingdom.Cefas.Client.png</PackageIcon>
+    <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</RepositoryUrl>
+    <PackageTags></PackageTags>
+    <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
+    <AssemblyName>MikaelDui.UnitedKingdom.Cefas.Client</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\UnitedKingdom.Cefas.Client.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MikaelDui.Extensions" Version="*" />
+  </ItemGroup>
+
+</Project>
