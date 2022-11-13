@@ -9,10 +9,12 @@
     <Import_RootNamespace>UnitedKingdom.Cefas.DataPortal</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataPortalWafClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalStatusClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalHoldingsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataPortalRecordsetClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Vocabulary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\WafHolding.cs" />
     <Compile Include="..\UnitedKingdom.Cefas.DataPortal.Client\DataPortalVocabularyClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Area.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CollectionStatus.cs" />

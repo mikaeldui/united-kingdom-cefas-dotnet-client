@@ -11,7 +11,14 @@ namespace UnitedKingdom.Cefas.DataPortal
     public class DataPortalHoldingsClient
     {
         private readonly HttpClient _httpClient;
+        private DataPortalWafClient? _wafClient;
         internal DataPortalHoldingsClient(HttpClient httpClient) => _httpClient = httpClient;
+
+        /// <summary>
+        /// WAF endpoints for data harvesters.
+        /// </summary>
+        public DataPortalWafClient Wafs => _wafClient ??= new DataPortalWafClient(_httpClient);
+
 
         #region Get Holding
 
