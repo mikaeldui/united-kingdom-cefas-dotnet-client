@@ -9,7 +9,7 @@
     <PackageId>MikaelDui.UnitedKingdom.Cefas.Client</PackageId>
     <Authors>Mikael Dúi Bolinder</Authors>
     <Product>MikaelDui.UnitedKingdom.Cefas.Client</Product>
-    <Description>This project is really awesome!</Description>
+    <Description>The Centre for Environment, Fisheries and Aquaculture Science is an executive agency of the United Kingdom government Department for Environment, Food and Rural Affairs.</Description>
     <PackageProjectUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>UnitedKingdom.Cefas.png</PackageIcon>
