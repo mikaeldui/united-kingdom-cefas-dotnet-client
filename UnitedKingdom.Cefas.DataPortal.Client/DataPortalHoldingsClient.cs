@@ -19,7 +19,6 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// </summary>
         public DataPortalWafClient Wafs => _wafClient ??= new DataPortalWafClient(_httpClient);
 
-
         #region Get Holding
 
         /// <summary>
@@ -207,5 +206,25 @@ namespace UnitedKingdom.Cefas.DataPortal
             await _httpClient.GetFromJsonAsync<Property>("properties/" + shortName);
 
         #endregion Get Property
+
+        #region Get XML Export
+
+        /// <summary>
+        /// Generates an XML representation of a holding as a step towards exporting to MEDIN format.
+        /// This service call cascades from the holdings endpoint, and permissions pass down to there.
+        /// </summary>
+        /// <param name="holdingId">The holding to generate an XML representation of.</param>
+        public async Task<Stream> GetHoldingXmlExportAsync(int holdingId) => 
+            await _httpClient.GetStreamAsync($"holdings/{holdingId}/xmlexport");
+
+        /// <summary>
+        /// Generates an XML representation of a holding as a step towards exporting to MEDIN format.
+        /// This service call cascades from the holdings endpoint, and permissions pass down to there.
+        /// </summary>
+        /// <param name="holding">The holding to generate an XML representation of.</param>
+        public async Task<Stream> GetHoldingXmlExportAsync(Holding holding) =>
+            await GetHoldingXmlExportAsync(holding.Id);
+
+        #endregion
     }
 }

@@ -122,5 +122,13 @@ namespace UnitedKingdom.Cefas.Tests
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.LongName);
         }
+
+        [TestMethod]
+        public async Task GetHoldingXmlExportAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetHoldingXmlExportAsync(5);
+            Assert.IsTrue(result.CanRead);
+        }
     }
 }
