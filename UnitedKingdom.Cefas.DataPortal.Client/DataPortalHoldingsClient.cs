@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http.Json;
 using System.Text;
+using System.Web;
 
 namespace UnitedKingdom.Cefas.DataPortal
 {
@@ -18,6 +19,72 @@ namespace UnitedKingdom.Cefas.DataPortal
         /// WAF endpoints for data harvesters.
         /// </summary>
         public DataPortalWafClient Wafs => _wafClient ??= new DataPortalWafClient(_httpClient);
+
+        #region Get Holdings
+
+        /// <summary>
+        /// Returns a page of holdings recognized by the system.
+        /// There are multiple possible parameters to this call, but only some of them may be used at any time.
+        /// When no parameters are specified, every holding in the system is returned.
+        /// Searchterm and keyword behave independently, matches to either will cause a holding to be returned.
+        /// If Searchterm is not specified then searchproperty will be ignored.
+        /// If the keyword parameter is exactly the string "{searchterm}" then the searchterm is used to find
+        /// matching keywords and matches to the keyword will be returned also
+        /// and the FIRST matching keyword is used to identify holdings.
+        /// Additionally, not more than one of the geographic options (gridid, region or the pair of regionclass and classitem) may be defined.
+        /// If GridId is specified then region and regionclass/classitem will be ignored.
+        /// If region is specified then regionclass/classitem willl be ignored
+        /// If regionclass is specified, then the classitem must be specified also.
+        /// Note that, as of this release, regionclass and classitem do not have any effect on the result set.
+        /// </summary>
+        /// <param name="page">The page number of the results to return.</param>
+        /// <param name="resultsPerPage">The number of results to show on each page.</param>
+        /// <param name="searchTerm">The word(s) that needs to appear in the holding for it to be included in the set of results.</param>
+        /// <param name="keyword">
+        /// The keyword(s) that needs to appear in one of the holdings properties in order for that holding to be included in the set of results. 
+        /// Multiple keywords can be entered separated by whitespace.</param>
+        /// <param name="gridId">The Grid Cell which holdings must be in to be returned.</param>
+        /// <param name="region">A WKT representation of the area that a search should be conducted within.</param>
+        /// <param name="regionClass">The typeo of region that should be searched for.</param>
+        /// <param name="classItem">The object within the region class that search should be conducted on.</param>
+        /// <param name="searchProperty">If Specified, the property on which a search should be performed, if not specified, then all properties are searched.</param>
+        /// <param name="status">If specified, filter the results based on the status of the holding.</param>
+        /// <param name="parent">Optionally limit the search results to holdings below the specified parent.</param>
+        /// <param name="dateField">Optionally limit the search results to a specified date range based on the specific field.</param>
+        /// <param name="start">If the date field is set, limit to records on or after this date.</param>
+        /// <param name="end">If the date field is set, limit to records on or before this date.</param>
+        /// <param name="types">If specified, filter the results based on the holding type. Multiple types can be entered separated by whitespace.</param>
+        /// <param name="enableThesaurus">If <see langword="true"/>, search on a list of expansions or replacements for the search terms based on matches in the thesaurus.</param>
+        public async Task<Page<Holding>?> GetHoldingsAsync(int page = 1, int resultsPerPage = 10, 
+            string? searchTerm = null, string? keyword = null, int? gridId = null,
+            string? region = null, string? regionClass = null, string? classItem = null,
+            string? searchProperty = null, int? status = null, int? parent = null,
+            string? dateField = null, string? start = null, string? end = null,
+            string? types = null, bool enableThesaurus = false)
+        {
+            var query = HttpUtility.ParseQueryString("");
+            query.Add("page", page.ToString());
+            query.Add("resultsperpage", resultsPerPage.ToString());
+            if (searchTerm != null) query.Add("searchterm", searchTerm);
+            if (keyword != null) query.Add("keyword", keyword);
+            if (gridId != null) query.Add("gridid", gridId.ToString());
+            if (region != null) query.Add("region", region);
+            if (regionClass != null) query.Add("regionclass", regionClass);
+            if (classItem != null) query.Add("classitem", classItem);
+            if (searchProperty != null) query.Add("searchproperty", searchProperty);
+            if (status != null) query.Add("status", status.ToString());
+            if (parent != null) query.Add("parent", parent.ToString());
+            if (dateField != null) query.Add("datefield", dateField);
+            if (start != null) query.Add("start", start);
+            if (end != null) query.Add("end", end);
+            if (types != null) query.Add("types", types);
+            if (enableThesaurus != false) query.Add("enablethesaurus", "true");
+            var queryString = query.ToString();
+            if (queryString.Length > 0) queryString = "?" + queryString;
+            return await _httpClient.GetFromJsonAsync<Page<Holding>>("holdings" + queryString);
+        }
+
+        #endregion Get Holdings
 
         #region Get Holding
 

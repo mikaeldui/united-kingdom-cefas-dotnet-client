@@ -12,6 +12,15 @@ namespace UnitedKingdom.Cefas.Tests
     public class DataPortalHoldingsTests
     {
         [TestMethod]
+        public async Task GetHoldingsAsync()
+        {
+            using DataPortalClient client = new();
+            var result = await client.Holdings.GetHoldingsAsync();
+            Assert.IsTrue(result.Items.Any());
+            Assert.IsNotNull(result.Items.First().Title);
+        }
+
+        [TestMethod]
         public async Task GetHoldingAsync()
         {
             using DataPortalClient client = new();
