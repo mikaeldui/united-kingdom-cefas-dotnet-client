@@ -12,7 +12,7 @@
     <Description>This project is really awesome!</Description>
     <PackageProjectUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageIcon>UnitedKingdom.Cefas.Client.png</PackageIcon>
+    <PackageIcon>UnitedKingdom.Cefas.png</PackageIcon>
     <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</RepositoryUrl>
     <PackageTags>cefas; united kingdom; environment; fisheries; aquaculture; data portal;</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
