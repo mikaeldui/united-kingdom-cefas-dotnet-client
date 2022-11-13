@@ -14,7 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>UnitedKingdom.Cefas.Client.png</PackageIcon>
     <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-cefas-dotnet-client</RepositoryUrl>
-    <PackageTags>cefas; united kingdom; environment; fisheries; aquaculture;</PackageTags>
+    <PackageTags>cefas; united kingdom; environment; fisheries; aquaculture; data portal;</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
     <AssemblyName>MikaelDui.UnitedKingdom.Cefas.Client</AssemblyName>
   </PropertyGroup>
