@@ -12,7 +12,7 @@ You can install it using the following **.NET CLI** command:
 ## Data Portal
 API for handling the complete dataset and data life-cycle through the Cefas Data Portal.
 
-Namespace: `UnitedKingdom.Cefas.DataPortal`. Main clsas: `DataPortalClient`.
+Namespace: `UnitedKingdom.Cefas.DataPortal`. Main class: `DataPortalClient`.
 
 ## Environment
 An Environmental Data Retrieval (EDR) API provides a family of lightweight interfaces to access Environmental Data resources, as per the standard defined by the Open Geospatial Consortium. 
